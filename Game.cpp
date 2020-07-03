@@ -272,6 +272,7 @@ void Game::timer(Uint64& NOW, Uint64& LAST)
 //funcions que tracten la puntuació----------------------------------------------------------------------------------------
 bool Game::desaPuntuacio(int& p1, int& p2, int& p3, int& np1, int& np2, int& np3) {
 	//ordena les puntuacions per ordre-------------------------------------------------------------------------------------
+	bool hScore = false;
 	if (m_punts > p1) {
 		
 		p3 = p2;
@@ -280,7 +281,7 @@ bool Game::desaPuntuacio(int& p1, int& p2, int& p3, int& np1, int& np2, int& np3
 		np2 = np1;
 		p1 = m_punts;
 		np1 = m_nParaules;
-		return true;
+		hScore = true;
 	}
 	else
 	{
@@ -300,7 +301,6 @@ bool Game::desaPuntuacio(int& p1, int& p2, int& p3, int& np1, int& np2, int& np3
 				
 			}
 		}
-		return false;
 	}
 	
 	
@@ -319,6 +319,7 @@ bool Game::desaPuntuacio(int& p1, int& p2, int& p3, int& np1, int& np2, int& np3
 
 		fitxer.close();
 	}
+	return hScore;
 }
 
 void Game::llegeixPuntuacio(int& p1, int& p2, int& p3, int& np1, int& np2, int& np3) {
